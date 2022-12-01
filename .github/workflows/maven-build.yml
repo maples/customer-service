@@ -69,7 +69,7 @@ jobs:
   
   sonar:
     needs: build
-    name: Build and analyze
+    name: Sonar Build and analyze
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
