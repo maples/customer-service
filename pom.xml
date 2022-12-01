@@ -79,6 +79,15 @@
       <artifactId>blaze-persistence-integration-quarkus</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.blazebit</groupId>
+      <artifactId>blaze-persistence-integration-hibernate-5.6</artifactId>
+      <scope>runtime</scope>
+    </dependency>    
+    <dependency>
+      <groupId>org.jboss.slf4j</groupId>
+      <artifactId>slf4j-jboss-logmanager</artifactId>
+    </dependency>
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>

@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="flmendes" id="1">
+        <createTable tableName="CUSTOMER">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="EMAIL" type="CURRENCY"/>
+            <column name="PHONE_NUMBER" type="VARCHAR(255)"/>
+            <column name="VERSION" type="VARCHAR(255)"/>
+            <column name="INSERTED_AT" type="DATETIME"/>
+            <column name="INSERTED_BY" type="VARCHAR(255)"/>
+            <column name="UPDATED_AT" type="DATETIME"/>
+            <column name="UPDATED_BY" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    
+</databaseChangeLog>
