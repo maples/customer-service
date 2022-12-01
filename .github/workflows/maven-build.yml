@@ -68,6 +68,7 @@ jobs:
         path: ${{github.workspace}}/reports
   
   sonar:
+    needs: build
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
