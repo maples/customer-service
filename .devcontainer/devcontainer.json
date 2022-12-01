@@ -1,0 +1,37 @@
+{
+	"name": "Java Remote Environment",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Update the VARIANT arg to pick a Java version: 8, 11, 17
+			// Append -bullseye or -buster to pin to an OS version.
+			// Use the -bullseye variants on local arm64/Apple Silicon.
+			"VARIANT": "17-bullseye",
+			// Options
+			"INSTALL_MAVEN": "true",
+			"MAVEN_VERSION": "3.8.5",
+			"INSTALL_GRADLE": "false",
+			"NODE_VERSION": "lts/*"
+		}
+	},
+	"remoteUser": "vscode",
+	"features": {
+		"docker-in-docker": "latest",
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+    	}
+	},
+	"extensions": [
+		"vscjava.vscode-java-pack",
+		"redhat.vscode-xml",
+		"Pivotal.vscode-boot-dev-pack",
+		"mhutchie.git-graph",
+		"vscjava.vscode-lombok",
+		"redhat.vscode-quarkus"
+	],
+	"forwardPorts": [8080],
+	"settings": {
+		"java.import.gradle.enabled": false,
+		"java.server.launchMode": "Standard"
+	}
+}
