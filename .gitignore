@@ -1,24 +1,40 @@
+#Maven
 target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
-pom.xml.next
 release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
-bin/*
-build/*
-.gradle/*
-.settings/*
-.classpath
+.flattened-pom.xml
+
+# Eclipse
 .project
-.factorypath
-.attach_pid*
+.classpath
+.settings/
+bin/
+
+# IntelliJ
 .idea
+*.ipr
 *.iml
-/target
-.sts4-cache/
+*.iws
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
 .vscode
+.factorypath
+
+# OSX
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Local environment
+.env
