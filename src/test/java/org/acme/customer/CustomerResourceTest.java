@@ -11,32 +11,13 @@ import static io.restassured.RestAssured.given;
 
 
 @QuarkusTest
-public class CustomerResourceTest {
+class CustomerResourceTest {
 
     @Inject
     CustomerService customerService;
 
-//    UUID customerCreated;
-//
-//    @BeforeEach
-//    public void setUp(){
-//        var customer = new CreateCustomerRequest("Test jUnit", "test@mail.com", "+55119905554");
-//        customerCreated  = customerService.add(customer);
-//    }
-//
-//    @Test
-//    public void findTest(){
-//        given()
-//        .log()
-//        .all()
-//        .when()
-//        .get("/customers/{uuid}", customerCreated)
-//        .then()
-//        .statusCode(200).extract().response();
-//    }
-
     @Test
-    public void addTest(){
+    void addTest(){
         var jsonCustomer = """
                  {
                     "name": "Test Unit",
