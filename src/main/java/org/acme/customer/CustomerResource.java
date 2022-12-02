@@ -30,6 +30,7 @@ public class CustomerResource {
     }
 
     @GET
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public CustomerDetailView retrive(UUID id){
         return customerService.findById(id);
