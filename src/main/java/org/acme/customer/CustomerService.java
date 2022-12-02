@@ -1,13 +1,15 @@
 package org.acme.customer;
 
-import java.util.UUID;
+import com.blazebit.persistence.view.EntityViewManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-
-import com.blazebit.persistence.view.EntityViewManager;
+import java.util.Objects;
+import java.util.UUID;
 
 @ApplicationScoped
 public class CustomerService {
@@ -17,6 +19,8 @@ public class CustomerService {
 
     @Inject
     EntityViewManager entityViewManager;
+
+    private static final Logger LOG = LoggerFactory.getLogger(CustomerService.class);
 
     @Transactional
     public UUID add(CreateCustomerRequest customerRequest){
@@ -28,11 +32,19 @@ public class CustomerService {
         customerEntity.phoneNumber = customerRequest.phoneNumber();
         customerEntity.persist();
 
+        LOG.info("Create customer with ID {}", customerEntity.id);
+
         return customerEntity.id;
     }
 
-    public CustomerDetailView findById(UUID id) {
-        return entityViewManager.find(entityManager, CustomerDetailView.class, id);
+    public CustomerDetailView findById(UUID id) throws CustomerNotFoundException {
+        LOG.info("Find customer with ID {}", id);
+        CustomerDetailView customerDetailView = entityViewManager.find(entityManager, CustomerDetailView.class, id);
+        if(Objects.isNull(customerDetailView)){
+            throw new CustomerNotFoundException("Customer not found");
+        }
+        LOG.info("Found customer with id: {}", customerDetailView.getId());
+        return customerDetailView;
     }
-    
+
 }

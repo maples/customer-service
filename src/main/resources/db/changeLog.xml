@@ -12,9 +12,9 @@
             <column name="ID" type="UUID">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(255)"/>
-            <column name="EMAIL" type="CURRENCY"/>
-            <column name="PHONE_NUMBER" type="VARCHAR(255)"/>
+            <column name="NAME" type="VARCHAR(100)"/>
+            <column name="EMAIL" type="VARCHAR(50)"/>
+            <column name="PHONE" type="VARCHAR(18)"/>
             <column name="VERSION" type="VARCHAR(255)"/>
             <column name="INSERTED_AT" type="DATETIME"/>
             <column name="INSERTED_BY" type="VARCHAR(255)"/>
@@ -22,5 +22,5 @@
             <column name="UPDATED_BY" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    
+
 </databaseChangeLog>
